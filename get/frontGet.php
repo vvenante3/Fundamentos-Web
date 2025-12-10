@@ -9,10 +9,23 @@
 
     <h3>Formulário GET</h3>
 
-    <form action="saudacao.php" method="GET">
-        <label>Digite o seu nome</label>
+    <form action="saudacao_get.php" method="GET">
+        <label>nome</label>
         <input type="text" name="nome" id="nome">
+        <br>
+
+        <label>email:</label>
+        <input type="text" name="email" id="email">
+        <br>
+
+        <label>idade</label>
+        <input type="number" name="idade" id="idade">
+        <br>
+
+        <label>mensagem</label>
+        <input type="text" name="mensagem" id="mensagem">
         <br><br>
+
         <button type="submit">Enviar</button>
     </form>
     
