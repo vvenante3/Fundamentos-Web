@@ -8,32 +8,42 @@
 <body>
     <?php
 
-    if(isset($_GET['nome'])) {
-        
-        $nome       = htmlspecialchars($_GET['nome']);
-        $email      = htmlspecialchars($_GET['email']);
-        $idade      = htmlspecialchars($_GET['idade']);
-        $mensagem   = htmlspecialchars($_GET['mensagem']);
+    $metodo = $_SERVER['REQUEST_METHOD'];
 
-        echo "<h1>Olá, {$nome}!</h1>";
+    if($metodo === 'GET') {
 
-        echo "
-            <table border='1'>
-                <tr>
-                    <th>Email</th>
-                    <th>Idade</th>
-                    <th>Mensagem</th>
-                </tr>
-                <tr>
-                    <td>{$email}</td>
-                    <td>{$idade}</td>
-                    <td>{$mensagem}</td>
-                </tr>
-            </table>
-        ";
-    } else {
-        echo "<h1>Nenhum nome recebido</h1>";
+        if(isset($_GET['nome'])) {
+            
+            $nome       = htmlspecialchars($_GET['nome']);
+            $email      = htmlspecialchars($_GET['email']);
+            $idade      = htmlspecialchars($_GET['idade']);
+            $mensagem   = htmlspecialchars($_GET['mensagem']);
+    
+            echo "<h1>Olá, {$nome}!</h1>";
+    
+            echo "
+                <table border='1'>
+                    <tr>
+                        <th>Email</th>
+                        <th>Idade</th>
+                        <th>Mensagem</th>
+                    </tr>
+                    <tr>
+                        <td>{$email}</td>
+                        <td>{$idade}</td>
+                        <td>{$mensagem}</td>
+                    </tr>
+                </table>
+                <p>
+            ";
+        } else {
+            echo "<h1>Nenhum nome recebido</h1>";
+        }
+
+        echo "Método utilizado: <strong>{$metodo}</strong><p>";
+
     }
+
     
     ?>
 

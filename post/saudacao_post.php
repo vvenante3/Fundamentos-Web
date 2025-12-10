@@ -8,33 +8,43 @@
 <body>
 
     <?php
-        if(isset($_POST['nome'])) {
 
-            $nome       = htmlspecialchars($_POST['nome']);
-            $email      = htmlspecialchars($_POST['email']);
-            $idade      = htmlspecialchars($_POST['idade']);
-            $mensagem   = htmlspecialchars($_POST['mensagem']);
-            
-            echo "<h1>Olá, {$nome}</h1>";
+    $metodo = $_SERVER['REQUEST_METHOD'];
 
-            echo "
-            <table border='1'>
-                <tr>
-                    <th>Email</th>
-                    <th>Idade</th>
-                    <th>Mensagem</th>
-                </tr>
-                <tr>
-                    <td>{$email}</td>
-                    <td>{$idade}</td>
-                    <td>{$mensagem}</td>
-                </tr>
-            </table>
-            ";
+        if($metodo === 'POST') {
 
-        } else {
-            echo "<h1>nenhum nome localizado</h1>";
+            if(isset($_POST['nome'])) {
+    
+                $nome       = htmlspecialchars($_POST['nome']);
+                $email      = htmlspecialchars($_POST['email']);
+                $idade      = htmlspecialchars($_POST['idade']);
+                $mensagem   = htmlspecialchars($_POST['mensagem']);
+                
+                echo "<h1>Olá, {$nome}</h1>";
+    
+                echo "
+                <table border='1'>
+                    <tr>
+                        <th>Email</th>
+                        <th>Idade</th>
+                        <th>Mensagem</th>
+                    </tr>
+                    <tr>
+                        <td>{$email}</td>
+                        <td>{$idade}</td>
+                        <td>{$mensagem}</td>
+                    </tr>
+                </table>
+                <p>
+                ";
+    
+            } else {
+                echo "<h1>nenhum nome localizado</h1>";
+            }
+
+            echo "Método utilizado: <strong>{$metodo}</strong><p>";
         }
+
 
     ?>
 
