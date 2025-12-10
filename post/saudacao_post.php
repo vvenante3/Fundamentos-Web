@@ -19,6 +19,35 @@
                 $email      = htmlspecialchars($_POST['email']);
                 $idade      = htmlspecialchars($_POST['idade']);
                 $mensagem   = htmlspecialchars($_POST['mensagem']);
+
+                // validacao nome
+                if($nome === ''){
+                    $erros[] = "nome está vazio!";
+                }
+
+                // validacao email
+                if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $erros[]  = "email inválido";
+                }
+
+                // validacao idade
+                if ($idade < 18) {
+                    $erros[] = "menor de idade";
+                }
+
+                // validacao mensagem
+                if(strlen($mensagem) <5 ){
+                    $erros[] = "mensagem curta";
+                }
+
+                if(!empty($erros)) {
+
+                    foreach($erros as $erro){
+                        echo "<li>$erro</li>";
+                    }
+
+                }
+
                 
                 echo "<h1>Olá, {$nome}</h1>";
     
