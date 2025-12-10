@@ -18,6 +18,34 @@
             $email      = htmlspecialchars($_GET['email']);
             $idade      = htmlspecialchars($_GET['idade']);
             $mensagem   = htmlspecialchars($_GET['mensagem']);
+
+            // validar nome
+            if($nome === '') {
+                $erros[] = "nome vazio";
+            }
+
+            // validar email
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $erros[] = "email inválido";
+            }
+
+            // validar idade
+            if($idade < 18) {
+                $erros[] = "menor de idade";
+            }
+
+            // validar mensagem
+            if(strlen($mensagem) < 5) {
+                $erros[] = "mensagem curta";
+            }
+
+            // exibe os erros
+            if(!empty($erros)) {
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
+            }
+
     
             echo "<h1>Olá, {$nome}!</h1>";
     

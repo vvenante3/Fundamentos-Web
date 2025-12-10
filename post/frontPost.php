@@ -11,19 +11,19 @@
 
     <form action="saudacao_post.php" method="POST">
         <label>Nome</label>
-        <input type="text" name="nome" id="nome" required>
+        <input type="text" name="nome" id="nome">
         <br>
 
         <label>Email</label>
-        <input type="text" name="email" id="email" required>
+        <input type="text" name="email" id="email">
         <br>
 
         <label>Idade</label>
-        <input type="number" name="idade" id="idade" required>
+        <input type="number" name="idade" id="idade">
         <br>
 
         <label>Mensagem</label>
-        <input type="text" name="mensagem" id="mensagem" required>
+        <input type="text" name="mensagem" id="mensagem">
         <br><br>
         
         <button type="submit">Enviar</button>
